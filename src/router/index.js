@@ -21,11 +21,14 @@ import PrescriptionPreview from '../Pages/DoctorProfile/PrescriptionPreview.vue'
 //import AllPatients from '../Pages/PatientProfile/AllPatients.vue'
 const routes = [
   {
+    mode: 'history',
     path: '/',
     redirect: '/home',
   },
   {
     path: '/home',
+    mode: 'history',
+
     component: LandingPage,
   },
 
