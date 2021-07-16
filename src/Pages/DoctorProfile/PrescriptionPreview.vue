@@ -8,12 +8,10 @@
       </ion-col>
     </ion-row>
     <ion-grid>
-
       <ion-card v-if="patientInfo" class="MainCard">
-
         <img
           class="personal_photo"
-          style="margin:10px"
+          style="margin: 10px"
           src="../../../public/Rx_symbol.png"
           alt="logo"
         />
@@ -31,7 +29,7 @@
 
           <ion-card-content>
             <p>Gender: {{ patientInfo.gender }}</p>
-            <p>Birth Date: {{ patientInfo.birth_date }}</p>
+            <p>Birth Date: {{ formatDate(patientInfo.birth_date) }}</p>
             <p>Mobile: {{ patientInfo.phone_number }}</p>
           </ion-card-content>
         </ion-card>
@@ -55,10 +53,10 @@
             <ion-card-header>
               <ion-card-title
                 style="text-transform: capitalize; line-height: 10px"
-                >Prescriptive drugs</ion-card-title
+                >Prescribed drugs</ion-card-title
               >
               <ion-card-subtitle
-                >These are prescription during this visit</ion-card-subtitle
+                >These are prescribed during this visit</ion-card-subtitle
               >
             </ion-card-header>
             <ion-card-content>
@@ -68,26 +66,35 @@
                   :key="item.id"
                   v-for="item in drugs"
                 >
-                    <ion-grid>
-                       <ion-row style="width: 100%">
-                      <ion-datetime :value="item.to_date" disabled style="margin:1px -12px" >
+                  <ion-grid>
+                    <ion-row style="width: 100%">
+                      <ion-datetime
+                        :value="item.to_date"
+                        disabled
+                        style="margin: 1px -12px"
+                      >
                       </ion-datetime>
-                                            </ion-row>
-                      <ion-row style="width: 100%">
-                        <ion-col>
-                          <ion-label> {{ item.name }} </ion-label>
-                          <ion-card-subtitle class="ion-align-items-center">
-                            {{ item.labeller }} ({{ item.strength }})
-                            <ion-icon :icon="earthOutline"></ion-icon>
-                            {{ item.country }}</ion-card-subtitle
-                          >
-                          <ion-badge style="margin-top: 10px" color="dark">{{
-                            item.parent_key
-                          }}</ion-badge>
-                        </ion-col>
-
-                      </ion-row>
-                    </ion-grid>
+                    </ion-row>
+                    <ion-row style="width: 100%">
+                      <ion-col>
+                        <b> {{ item.name }} </b>
+                        <ion-card-subtitle class="ion-align-items-center">
+                          {{ item.labeller }} ({{ item.strength }})
+                          <ion-icon :icon="earthOutline"></ion-icon>
+                          {{ item.country }}</ion-card-subtitle
+                        >
+                        <ion-badge style="margin-top: 10px" color="dark">{{
+                          item.parent_key
+                        }}</ion-badge>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-text style="padding:0px  5px"
+                        ><b style="font-size:14px">Dose: </b
+                        >{{ item.dose }}</ion-text
+                      >
+                    </ion-row>
+                  </ion-grid>
                 </ion-item>
               </ion-list>
             </ion-card-content>
@@ -110,12 +117,15 @@
 <script>
 import { defineComponent } from "vue";
 import axios from "axios";
+import { earthOutline } from "ionicons/icons";
+
 import moment from "moment";
 export default defineComponent({
   name: "Prescription",
   components: {},
   data() {
     return {
+      earthOutline,
       patientInfo: null,
       drugsInfo: [],
       drugname: "",
@@ -134,9 +144,21 @@ export default defineComponent({
   },
   setup() {},
   methods: {
-    moment: function () {
+    moment: function() {
       return moment();
     },
+    formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    },
+
     async selectPatient(item) {
       this.patientInfo = item;
       await this.get_medications();
