@@ -3,7 +3,9 @@ const servestatic = require('serve-static')
 const path = require('path')
 const express = require('express')
 const port = process.env.PORT || 5000;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+console.log(process.env.YOUR_HOST)
 const app = express();
 app.use(history());
 app.use(servestatic(path.join(path.resolve(), 'dist')));
-app.listen(port, () => { console.log("API server started on " + port); });
+app.listen(port, server_host, () => { console.log("API server started on " + port); });
