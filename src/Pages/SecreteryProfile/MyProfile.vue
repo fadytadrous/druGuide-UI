@@ -244,7 +244,7 @@
       
         if(complete){
         //   console.log(this.editedInfo)
-          if(!String(this.editedInfo.phone_number).match(/^\d{11}$/) || !String(this.editedInfo.ssn).match(/^\d{14}$/) || !String(this.editedInfo.email).match(this.emailFormat)){
+          if(!this.editedInfo.phone_number.match(/^\d{11}$/) || !this.editedInfo.ssn.match(/^\d{14}$/) || !String(this.editedInfo.email).match(this.emailFormat)){
 
             // alert("invalid Phone number or National ID")
             this.presentAlert("invalid Phone number or National ID or email");
@@ -295,7 +295,7 @@
               sec.birth_date = sec.birth_date.split('T')[0];
               this.secInfo = sec
                this.editedInfo = {...sec};
-               this.editedInfo.phone_number = '0'+ this.editedInfo.phone_number;
+            //    this.editedInfo.phone_number = '0'+ this.editedInfo.phone_number;
             // console.log(this.profilePhoto)
             
           } )
