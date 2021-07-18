@@ -27,7 +27,7 @@ npm-debug.log*
 /dist
 /node_modules
 /android
-/dist
+# /dist
 /platforms
 /plugins
 /www
