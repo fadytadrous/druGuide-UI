@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node server.js"
   },
   "dependencies": {
     "@capacitor/android": "^2.4.5",
@@ -42,5 +43,8 @@
     "vue-jest": "^5.0.0-alpha.10"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "12.13.1"
+  },
   "description": "An Ionic project"
 }
