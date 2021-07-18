@@ -34,13 +34,14 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
-    "@vue/cli-service": "4.5.12",
     "@vue/compiler-sfc": "^3.0.0-0",
     "@vue/test-utils": "^2.0.0-0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "vue-jest": "^5.0.0-alpha.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@vue/cli-service": "4.5.12"
+  },
   "description": "An Ionic project"
 }
