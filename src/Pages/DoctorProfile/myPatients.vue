@@ -120,7 +120,9 @@ import PatientCard from "../../components/PatientCard";
 
                   }
                       for (const med of this.pa.visit) {
+
                           if(med.visits && med.diagnosis ){
+                              console.log(med.visits,med.diagnosis);
                           this.Pvisits.push({
                               patient_id:med.patient_id,
                               dates:med.visits.split(','),
@@ -129,7 +131,7 @@ import PatientCard from "../../components/PatientCard";
                           }
                       }
                       for(const i in this.Patients ){
-                          if(this.Patients[i].patient_id === this.Pvisits[i].patient_id){
+                          if(this.Pvisits[i] && this.Patients[i].patient_id === this.Pvisits[i].patient_id){
                         this.all.push({...this.Patients[i],
                             ...this.Pvisits[i]})}
                             else{
