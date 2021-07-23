@@ -8,7 +8,6 @@
                     <ion-col offset-lg="0.2" offset-xs="3.4" size-lg="1.5" size-xs="6">
                         <div class="image">   
                         <img src="../../../public/assets/mainlogo.png"  @click="router.push('/')">   
-                        <!-- <img src="../../../public/assets/logo4.png"  >    -->
                         </div>
                     </ion-col>
                     <ion-col size-lg="3" offset-lg="0.9" size-xs="6"  >
@@ -67,9 +66,7 @@
                                         <ion-col size="12" size-sm  >
                                             <label class= 'custom' >Gender</label>
 
-                                            <!-- <radio-form id="Male" name='gender'/>
-
-                                         <radio-form id="Female" name='gender' /> -->
+                                           
                                             <div class="container">
 
                                             <ul>
@@ -96,7 +93,6 @@
                                     </ion-row>
                                     <ion-row class="ion-justify-content-center" >
                                         <ion-col size="12" size-sm  >
-                                            <!-- <form-field type="text" LableText="Email"/> -->
                                             <div class="user-box">
                                             <input  type="text"   required="" v-model="Account.email">
                                             
@@ -105,7 +101,6 @@
                                             </div>
                                         </ion-col>
                                          <ion-col size="12" size-sm >
-                                            <!-- <form-field type="password" LableText="Password"/> -->
                                             <div class="user-box">
                                             <input  type="password"   required="" v-model="Account.password">
                                             <p class="pas">at least 8 characters with one letter, one number</p>
@@ -122,7 +117,6 @@
                                     <ion-row >
                                         
                                         <ion-col size="12" size-sm size-lg="6">
-                                            <!-- <form-field type="password" LableText="Confirm Password"/> -->
                                             <div class="user-box">
                                             <input  type="password"   required="" v-model="confirmPassword">
                                             
@@ -155,7 +149,6 @@
 <script>
 import { defineComponent } from 'vue';
 import { IonPage,IonContent,IonCol, IonGrid, IonRow , IonButton ,alertController} from '@ionic/vue';
-// import ProgressBar from '../../components/ProgressBar.vue';
 import FormButton from '../../components/FormButton'
 import {useRouter} from 'vue-router';
 
@@ -169,7 +162,6 @@ export default defineComponent({
     IonGrid,
     IonRow,
     IonContent,
-    // ProgressBar,
     IonPage,
     FormButton,
     IonButton,
@@ -214,8 +206,7 @@ export default defineComponent({
    
       const Account = Object.entries(this.Account)
       let complete = true;
-        for (const [key, value] of Account  ) {
-          console.log(key , value);
+        for (const value of Account.values()  ) {
           if(value === '' ){
                  
             complete = false;
@@ -251,15 +242,14 @@ export default defineComponent({
             if(!res.ok){
                 throw new Error(res.status)
             }else{
-                // return res.json();
-                console.log("success" )
+               
                 this.router.push('/LoginPurchase')
                
             }
             })
             .catch(() =>
             { 
-            console.log("Unable to register")
+            
             this.presentAlert("Register Failed")
 
             })

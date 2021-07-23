@@ -193,11 +193,7 @@ export default defineComponent({
     Goto(id){
       const el = document.getElementById(id)
       el.scrollIntoView({behavior: 'smooth' , block: 'start'});
-      // el.scrollToPoint(0,1200)
-      console.log(this.$refs.content)
-      // this.$refs.content.scrollToPoint(null, 500)
-      // this.content.scrollY(50)
-      // this.content.scrollToPoint(null, 500)
+      
     },
     isloggedin(){
       if(localStorage.getItem('tokenPurchase') === null) {

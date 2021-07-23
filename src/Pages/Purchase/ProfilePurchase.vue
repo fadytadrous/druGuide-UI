@@ -8,7 +8,6 @@
                     <ion-col offset-lg="0.2" offset-xs="3.4" size-lg="1.5" size-xs="6">
                         <div class="image">   
                         <img src="../../../public/assets/mainlogo.png" @click="router.push('/')"  >   
-                        <!-- <img src="../../../public/assets/logo4.png"  >    -->
                         </div>
                     </ion-col>
 
@@ -31,7 +30,6 @@
                             
                                 <ion-row class="ion-justify-content-center" >
                                     <ion-col size="12" size-sm size-lg="8" >
-                                        <!-- <form-field type="text" LableText="Email"/> -->
                                         <div class="user-box">
                                         <input  type="text"   required="" v-model="email">
                                         
@@ -69,7 +67,6 @@
                             
                                 <ion-row class="ion-justify-content-center" >
                                     <ion-col size="12" size-sm size-lg="8" >
-                                        <!-- <form-field type="text" LableText="Email"/> -->
                                         <div class="user-box">
                                         <input  type="text"   required="" v-model="clinic.clinic_name">
                                         
@@ -82,7 +79,6 @@
 
                                 <ion-row class="ion-justify-content-center" >
                                     <ion-col size="12" size-sm size-lg="8" >
-                                        <!-- <form-field type="text" LableText="Email"/> -->
                                         <div class="user-box">
                                         <input  type="text"   required="" v-model="clinic.address">
                                         
@@ -121,9 +117,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { IonPage,IonContent,IonCol, IonGrid, IonRow,alertController  } from '@ionic/vue';
-// import ProgressBar from '../../components/ProgressBar.vue';
 import FormButton from '../../components/FormButton'
-// import { mapGetters } from 'vuex';
 import {useRouter} from 'vue-router';
 export default defineComponent({
   name: ' ProfilePurchase',
@@ -133,10 +127,8 @@ export default defineComponent({
     IonGrid,
     IonRow,
     IonContent,
-    // ProgressBar,
     IonPage,
     FormButton,
-    // IonButton,
    
    
     
@@ -179,12 +171,11 @@ export default defineComponent({
           method: 'get',
           headers: {'Content-Type': 'application/json', 'authorization': 'Bearer '+localStorage.getItem('tokenPurchase')},
         })
-        // fetch(`http://localhost:3000/clinics?id=${user.customer_id}`)
         .then(response => response.json())
         .then(clinics => {
         
           this.myclincs = clinics
-          console.log(clinics)
+          
         } )
         
         if(this.myclincs.length === 0){
@@ -212,14 +203,14 @@ export default defineComponent({
                   // return res.json();
                   this.presentAlert("Code sent successfuly")
                   this.email = '';
-                  console.log("success" )
+                
                   // this.router.push('/LoginPurchase')
                  
               }
               })
               .catch(() =>
               { 
-              console.log("Unable to send Code ")
+              
               this.presentAlert("Unable to send Code")
   
               })
@@ -251,14 +242,14 @@ export default defineComponent({
                 this.presentAlert("Clinic Added successfuly")
                 this.clinic.clinic_name = '';
                 this.clinic.address = '';
-                console.log("success" )
+                
                 // this.router.push('/LoginPurchase')
                
             }
             })
             .catch(() =>
             { 
-            console.log("Unable to Add Clinic ")
+            
             this.presentAlert("Unable to Add Clinic")
 
             })
@@ -273,18 +264,7 @@ export default defineComponent({
     const router = useRouter();
     return { router };
   }
-  // mounted(){
-  //   const user = this.$store.getters['user']
-    
-  //   fetch(`http://localhost:3000/clinics/${user.customer_id}`)
-  //   // fetch(`http://localhost:3000/clinics?id=${user.customer_id}`)
-  //   .then(response => response.json())
-  //   .then(clinics => {
-     
-  //     this.myclincs = clinics
-  //     console.log(clinics)
-  //   } )
-  // }, 
+ 
 });
 </script>
 

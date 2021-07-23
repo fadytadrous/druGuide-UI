@@ -2,9 +2,7 @@
 
             <ion-grid style="margin-top:40px; margin-bottom:40px;" >
                 <ion-row class= "ion-justify-content-center">
-                <!-- <ion-row class= "ion-justify-content-center"> -->
                     <ion-col class="left"  size-lg="2.5"  size-xs="12">
-                    <!-- <ion-col class="left"  size-lg="4" offset-lg="2" size-xs="12"> -->
                         
 
                         
@@ -25,7 +23,6 @@
                     </ion-col>
 
                     <ion-col class="right" size-lg="6" pull-lg="0.1" size-xs="12">
-                    <!-- <ion-col class="right" size-lg="6" pull-lg="2" size-xs="12"> -->
                             <h2>Today's Visits</h2>
                         <div class="login-box" >
                             
@@ -36,11 +33,8 @@
                                
                                 <ion-row v-for="visit in visits " :key="visit.visit_id">
                                     <ion-col  size="12" size-sm>
-                                    <!-- <ion-col size="12" size-sm> -->
-                                        <!-- <ion-label >Work In </ion-label> -->
+                                    
                                         <ion-label >Patient: {{visit.first_name}} {{visit.last_name}}, Time: {{visit.time}} </ion-label>
-                                        <!-- <p v-for="clinic in doctorInfo.clinics " :key="clinic"> {{clinic}}</p> -->
-                                        <!-- <p :v-for="clinic in doctorInfo.clinics "> {{clinic}}</p> -->
 
                                     </ion-col>
 
@@ -60,32 +54,21 @@
 </template>
 <script>
     import { defineComponent } from 'vue';
-    // import { female,male} from "ionicons/icons";
     import {
-        // IonList,
         IonLabel,
-        // IonItem,
         IonGrid,
-        // IonIcon,
         IonRow,
         IonCol,
-        // IonAvatar ,
-        // IonButton  
         } from "@ionic/vue";
-    // import BaseTemplate from "../../components/BaseTemplate";
     export default defineComponent({
         name: 'MyProfileDoctor',
         components:{
-            // BaseTemplate,
-            // IonList,
-            // IonItem,
+            
             IonGrid,
             IonLabel,
-            // IonIcon,
             IonRow,
             IonCol,
-            // IonAvatar,
-            // IonButton
+           
         },
 
         data(){
@@ -93,7 +76,6 @@
                 
                 
                   
-                // visits:[]
                 visits:[]
                 
             };
@@ -115,7 +97,6 @@
                     5: 'friday',
                     6: 'Saturday',
                 };
-                // console.log(daysofweek[today.getDay()])
                 return {daysofweek: daysofweek[today.getDay()],full:full} ;
                 // return daysofweek[today.getDay()],full ;
             }

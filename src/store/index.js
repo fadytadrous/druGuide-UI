@@ -25,16 +25,14 @@ const store = createStore({
     fill_userData(state, payload){
        
         state.user = payload;
-        // console.log(state.user)
-        // console.log(payload)
+       
 
       },
 
       set_staffID(state, payload){
        
         state.staffID = payload;
-        console.log(state.staffID)
-        // console.log(payload)
+       
 
       },
 

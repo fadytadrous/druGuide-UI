@@ -102,14 +102,14 @@ export default defineComponent({
      onSubmit(){
        
        const pickedClinics = this.clinics.filter( clinic => clinic.active === true );
-       console.log(pickedClinics)
+       
        if (pickedClinics.length === 0){
           this.presentAlert("Please pick a clinic")
        }
        else{
         let auth_id = this.$store.getters['user'].auth_id
         let data = {...this.$store.getters['SignUpData'], auth_id: auth_id , pickedClinics: pickedClinics }
-        console.log(data)
+        
 
         fetch(process.env.VUE_APP_ROOT_API+'register', {
         method: 'post',
@@ -123,14 +123,14 @@ export default defineComponent({
             return res.json()
           }
           }).
-        then((res)=> {
-          console.log(res)
+        then(()=> {
+          
           this.changePhase({currentPhase: 'PersonalInformation'})
           this.router.push('/Login')
           })
         .catch(() =>
          { 
-           console.log("Unable to register")
+           
            this.presentAlert("Register Failed")
 
          })
@@ -138,26 +138,22 @@ export default defineComponent({
          
        }
 
-      //  fetch('http://localhost:3000/')
      },
     ...mapActions(['changePhase']),
-    // ...mapGetters(['user'])
-    // ,
+    
 
     activate(clinic)
     {
       clinic.active = !clinic.active;
     },
-    test(id){
-      console.log(id)
-    }
+   
     
   },
   
   
   mounted(){
     const user = this.$store.getters['user']
-    console.log(user.customer_id)
+    
     fetch(process.env.VUE_APP_ROOT_API+`clinics/${user.customer_id}`)
     // fetch(`http://localhost:3000/clinics?id=${user.customer_id}`)
     .then(response => response.json())
@@ -168,7 +164,7 @@ export default defineComponent({
         
       });
       this.clinics = clinics
-      console.log(clinics)
+      
     } )
   }, 
   setup(){

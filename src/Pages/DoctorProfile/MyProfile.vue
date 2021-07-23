@@ -226,8 +226,8 @@
         submit(){
             const editedInfo = Object.entries(this.editedInfo)
             let complete = true;
-            for (const [key, value] of editedInfo  ) {
-            console.log(key);
+            for (const value of editedInfo.values()  ) {
+            
             if(value === '' ){
 
                 complete = false; 
@@ -257,13 +257,12 @@
                     return res.json()
                 }
                 }).
-                then((res)=> {
-                console.log(res)
+                then(()=> {
+                
                 this.edit = false;
                 })
                 .catch(() =>
                 { 
-                console.log("Unable to edit")
                 this.presentAlert("edit Failed")
 
                 })
@@ -290,7 +289,7 @@
               this.doctorInfo = doctor
               this.editedInfo = {...doctor};
             //   this.editedInfo.phone_number = '0'+ this.editedInfo.phone_number
-            // console.log(this.profilePhoto)
+            
             
           } )
 

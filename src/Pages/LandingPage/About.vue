@@ -31,7 +31,6 @@
           
           <ion-row>
 
-            <!-- <ion-col size-lg="3" style="margin-left:25px; margin-right:25px;" > -->
             <ion-col size-lg="7" offset-lg="0.8" size-xs="12">
               <ion-card class= "aboutCard" style="margin-top: 50px;">
                 <ion-card-content>

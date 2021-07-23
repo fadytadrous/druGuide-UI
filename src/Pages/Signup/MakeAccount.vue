@@ -10,7 +10,6 @@
 
             <ion-row class="ion-justify-content-center" >
               <ion-col size="12" size-sm size-lg="7" >
-                <!-- <form-field type="text" LableText="Email"/> -->
                 <div class="user-box">
                   <input  type="text"   required="" v-model="Account.email">
                   
@@ -23,7 +22,6 @@
 
             <ion-row class="ion-justify-content-center"> 
               <ion-col size="12" size-sm size-lg="7">
-                <!-- <form-field type="password" LableText="Password"/> -->
                 <div class="user-box">
                   <input  type="password"   required="" v-model="Account.password">
                   
@@ -37,7 +35,6 @@
             <ion-row class="ion-justify-content-center">
               
               <ion-col size="12" size-sm size-lg="7">
-                <!-- <form-field type="password" LableText="Confirm Password"/> -->
                  <div class="user-box">
                   <input  type="password"   required="" v-model="Account.confirmPassword">
                   
@@ -74,14 +71,12 @@
 import { defineComponent } from 'vue';
 import { IonCol, IonGrid, IonRow,alertController } from '@ionic/vue';
 import FormButton from '../../components/FormButton.vue';
-// import FormField from '../../components/FormField'
 // import { mapActions } from 'vuex';
 
 export default defineComponent({
   name: 'Signup2',
   components: {
     FormButton,
-    // FormField,
     IonCol,
     IonGrid,
     IonRow,
@@ -119,8 +114,8 @@ export default defineComponent({
       changePhaseNext(phase){
       const Account = Object.entries(this.Account)
       let complete = true;
-        for (const [key, value] of Account  ) {
-          console.log(key , value);
+        for (const value of Account.values()  ) {
+          
           if(value === ''){
             complete = false;
           }
@@ -131,17 +126,14 @@ export default defineComponent({
             this.presentAlert("Please enter a strong password at leat 8 characters containig one lower case letter and one number");
             }
           else if(this.Account.password === this.Account.confirmPassword && this.Account.email.match(this.emailFormat)){
-          // if(this.Account.password === this.Account.confirmPassword && this.emailFormat.test(this.Account.email)){
 
             this.$store.dispatch('FillData', {email: this.Account.email, password: this.Account.password});
-            // console.log(this.$store.getters['SignUpData'])
+           
             this.$store.dispatch('changePhase', phase);
           }else{
-            // alert("Please enter a vaild email or make sure that the passwords are the same")
             this.presentAlert("Please enter a vaild email or make sure that the passwords are the same")
           }
         }else{
-          // alert("Please fill all the fields");
           this.presentAlert("Please fill all the fields")
 
         }
@@ -152,7 +144,6 @@ export default defineComponent({
         this.$store.dispatch('changePhase', phase);
        
    },
-    // ...mapActions(['changePhase'])
   }
 });
 </script>

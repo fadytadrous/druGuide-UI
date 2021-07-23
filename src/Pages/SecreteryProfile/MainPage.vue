@@ -1,19 +1,12 @@
 <template>
   <ion-page>
     <ion-menu side="start" menu-id="first" content-id="main">
-      <!-- <ion-header>
-        <ion-toolbar color="secondary">
-          <ion-title>Options</ion-title>
-        </ion-toolbar>
-      </ion-header> -->
+     
       <ion-content>
         <ion-list>
-          <!-- <img :src="img" alt="logo" /> -->
           <ion-grid>
             <ion-row class="ion-align-items-center ion-justify-content-center">
-              <!-- <ion-col > -->
               <ion-col size-lg="4" size-md="4" size-sm="4" size-xs="4">
-                <!-- <img class="personal_photo" src="../../../public/me.jpg" alt="logo"  /> -->
                 <ion-avatar>
                   <img
                     v-if="profilePhoto === 'null'"
@@ -58,7 +51,6 @@
           <ion-item button router-link="/MainPageSecretery/AllPatients"
             >All Patients</ion-item
           >
-          <!-- <ion-item href="/Prescription">Prescription</ion-item> -->
         </ion-list>
       </ion-content>
     </ion-menu>
@@ -70,7 +62,6 @@
         <ion-header   >
           <ion-toolbar class="tool"  >
 
-            <!-- <ion-toolbar color="primary"> -->
             <ion-buttons slot="start">
               <ion-menu-button auto-hide="false"></ion-menu-button>
             </ion-buttons>
@@ -131,7 +122,6 @@ import {
   IonMenu,
   IonButton,
   IonButtons,
-  // IonThumbnail,
   IonList,
   IonItem,
   IonIcon,
@@ -176,7 +166,6 @@ export default defineComponent({
   },
   data() {
     return {
-      //icons start
       add,
       ellipsisHorizontal,
       ellipsisVertical,
@@ -190,7 +179,6 @@ export default defineComponent({
       first_name: "",
       last_name: "",
       img: require("../../../public/logobig.png"),
-      //icons end
     };
   },
 
@@ -213,7 +201,6 @@ export default defineComponent({
         this.profilePhoto = sec.photo;
         this.first_name = sec.first_name;
         this.last_name = sec.last_name;
-        // console.log(this.profilePhoto)
       });
   },
   setup() {

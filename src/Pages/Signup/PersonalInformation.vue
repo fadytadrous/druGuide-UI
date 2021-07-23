@@ -301,11 +301,8 @@ export default defineComponent({
       return alert.present();
     },
 
-    get(){
-    
-     console.log(this.personalInformation);
-     
-   },
+  
+  
 
    async isAuthorized(){
        
@@ -322,7 +319,7 @@ export default defineComponent({
         this.result = true;
       }else{ 
         this.result = false;
-        console.log("no") 
+        
       }
     } )
    
@@ -335,7 +332,6 @@ export default defineComponent({
       const personalInformation = Object.entries(this.personalInformation)
       let complete = true;
         for (const [key, value] of personalInformation  ) {
-           // console.log(key , value);
            if(value === '' ){
                if(key === 'speciality' && this.personalInformation.proficiency ==='secretary' ){
                    //do nothing
@@ -364,11 +360,9 @@ export default defineComponent({
             this.$store.dispatch('FillData', this.personalInformation);
             this.$store.dispatch('changePhase', phase);
 
-            // console.log(this.user[0])
             this.$store.dispatch('fill_userData', this.user[0]);
           }
         }else{
-          // alert("Please fill all the fields");
           this.presentAlert("Please fill all the fields");
 
         }
@@ -381,12 +375,10 @@ export default defineComponent({
      reader.readAsDataURL(image);
      reader.onload = event =>{
        this.personalInformation.photo = event.target.result;
-       console.log(this.personalInformation.photo);
      }
 
     
    }
-    // ...mapActions(['changePhase'])
 
   },
   computed: {
@@ -401,15 +393,10 @@ export default defineComponent({
   min-width:110px;
 }
 
-/* .image-input{ */
 
-	/* text-align: center; */
-  /* display: none; */
-/* } */
 	
 	.image-button{
 
-		/* display: block; */
 		color: #FFF;
     width:150px;
 		background: rgb(0, 173, 204)	;
@@ -433,6 +420,5 @@ export default defineComponent({
 	span
 		{
     display: none;
-		/* text-align: center; */
 		cursor: pointer;}
 </style>

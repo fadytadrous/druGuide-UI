@@ -159,13 +159,11 @@ export default defineComponent({
                 throw new Error(res.status)
             }else{
                 return res.json();
-                // console.log("success" )
-                // this.router.push('/LoginPurchase')
+                
                
             }
             }).then(res =>{
-              //  console.log(res)
-              //  this.$store.dispatch('set_staffID', res);
+              
               
                if(this.Account.proficiency === 'doctor')
                {
@@ -180,7 +178,7 @@ export default defineComponent({
             })
             .catch(() =>
             { 
-            console.log("Unable to Login")
+            
             this.presentAlert("Login Failed")
 
             })

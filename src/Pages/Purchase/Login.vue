@@ -8,7 +8,6 @@
                     <ion-col offset-lg="0.2" offset-xs="3.4" size-lg="1.5" size-xs="6">
                         <div class="image">   
                         <img src="../../../public/assets/mainlogo.png" @click="router.push('/')">   
-                        <!-- <img src="../../../public/assets/logo4.png"  >    -->
                         </div>
                     </ion-col>
                     <ion-col size-lg="3" offset-lg="0.9" size-xs="6" offset-md="0" >
@@ -36,7 +35,6 @@
                             
                                 <ion-row class="ion-justify-content-center" >
                                     <ion-col size="12" size-sm size-lg="8" >
-                                        <!-- <form-field type="text" LableText="Email"/> -->
                                         <div class="user-box">
                                         <input  type="text"   required="" v-model="Account.email">
                                         
@@ -49,7 +47,6 @@
 
                                 <ion-row class="ion-justify-content-center"> 
                                     <ion-col size="12" size-sm size-lg="8">
-                                        <!-- <form-field type="password" LableText="Password"/> -->
                                         <div class="user-box">
                                         <input  type="password"   required="" v-model="Account.password">
                                         
@@ -86,15 +83,13 @@
 import { defineComponent } from 'vue';
 import { IonCol, IonGrid, IonRow,alertController , IonContent, IonPage, IonButton } from '@ionic/vue';
 import FormButton from '../../components/FormButton.vue';
-// import FormField from '../../components/FormField'
-// import { mapActions } from 'vuex';
+
 import {useRouter} from 'vue-router';
 
 export default defineComponent({
   name: 'LoginPurchase',
   components: {
     FormButton,
-    // FormField,
     IonCol,
     IonGrid,
     IonRow,
@@ -144,19 +139,16 @@ export default defineComponent({
                 throw new Error(res.status)
             }else{
                 return res.json();
-                // console.log("success" )
                 // this.router.push('/LoginPurchase')
                
             }
             }).then(res =>{
-              //  console.log(res)
                localStorage.setItem('tokenPurchase', res.accessToken)
-              //  this.$store.dispatch('fill_userData', res);
                 this.router.push('/ProfilePurchase')
             })
             .catch(() =>
             { 
-            console.log("Unable to Login")
+            
             this.presentAlert("Login Failed")
 
             })

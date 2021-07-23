@@ -2,22 +2,16 @@
 
             <ion-grid style="margin-top:40px; margin-bottom:40px;" >
                 <ion-row class= "ion-justify-content-center">
-                <!-- <ion-row class= "ion-justify-content-center"> -->
                     <ion-col class="left"  size-lg="2.5"  size-xs="12">
-                    <!-- <ion-col class="left"  size-lg="4" offset-lg="2" size-xs="12"> -->
                         
 
                         
                         <ion-grid  >
                             <ion-row >
-                                <!-- <ion-col > -->
                                 <ion-col size-lg="4" >
-                                <!-- <img class="personal_photo" src="../../../public/me.jpg" alt="logo"  /> -->
                                 <ion-avatar class="personal_photo2" >
-                                <!-- <div class="personal_photo2" > -->
                                     <img v-if="secInfo.photo != 'null'"  class="personal_photo"  :src="secInfo.photo" alt="logo"  />
                                     <img  v-else class="personal_photo"  src="../../../public/me.jpg" alt="logo"  />
-                                <!-- </div> -->
                                 </ion-avatar>
                                 
                                 </ion-col>
@@ -32,7 +26,6 @@
                     </ion-col>
 
                     <ion-col class="right" size-lg="6" pull-lg="0.1" size-xs="12">
-                    <!-- <ion-col class="right" size-lg="6" pull-lg="2" size-xs="12"> -->
                             <h2>My Profile</h2>
                         <div class="login-box" >
                             
@@ -172,9 +165,7 @@
     import { defineComponent } from 'vue';
     import { female,male} from "ionicons/icons";
     import {
-        // IonList,
         IonLabel,
-        // IonItem,
         IonGrid,
         IonIcon,
         IonRow,
@@ -182,13 +173,9 @@
         IonAvatar ,alertController,
         IonButton 
           } from "@ionic/vue";
-    // import BaseTemplate from "../../components/BaseTemplate";
     export default defineComponent({
         name: 'MyProfileSecretery',
         components:{
-            // BaseTemplate,
-            // IonList,
-            // IonItem,
             IonGrid,
             IonLabel,
             IonIcon,
@@ -216,7 +203,6 @@
                 .create({
                 cssClass: 'alert',
                 header: 'Alert',
-                // subHeader: 'Subtitle',
                 message: msg,
                 buttons: ['OK'],
                 });
@@ -234,8 +220,7 @@
         submit(){
             const editedInfo = Object.entries(this.editedInfo)
             let complete = true;
-            for (const [key, value] of editedInfo  ) {
-            console.log(key);
+            for (const value of editedInfo.values()  ) {
             if(value === '' ){
 
                 complete = false; 
@@ -243,10 +228,8 @@
             }
       
         if(complete){
-        //   console.log(this.editedInfo)
           if(!this.editedInfo.phone_number.match(/^\d{11}$/) || !this.editedInfo.ssn.match(/^\d{14}$/) || !String(this.editedInfo.email).match(this.emailFormat)){
 
-            // alert("invalid Phone number or National ID")
             this.presentAlert("invalid Phone number or National ID or email");
 
           }
@@ -265,13 +248,11 @@
                     return res.json()
                 }
                 }).
-                then((res)=> {
-                console.log(res)
+                then(()=> {
                 this.edit = false;
                 })
                 .catch(() =>
                 { 
-                console.log("Unable to edit")
                 this.presentAlert("edit Failed")
 
                 })
@@ -296,7 +277,6 @@
               this.secInfo = sec
                this.editedInfo = {...sec};
             //    this.editedInfo.phone_number = '0'+ this.editedInfo.phone_number;
-            // console.log(this.profilePhoto)
             
           } )
 
