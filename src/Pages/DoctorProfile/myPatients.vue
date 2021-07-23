@@ -29,7 +29,7 @@
 </template>
 <script>
     import { defineComponent } from 'vue';
-    // import MySchedules from './Schedules.vue'
+
     import {
 
         IonCol,
@@ -62,7 +62,7 @@ import PatientCard from "../../components/PatientCard";
         },
         data() {
             return {
-                //icons start
+
                 add,
                 ellipsisHorizontal,
                 ellipsisVertical,
@@ -73,7 +73,7 @@ import PatientCard from "../../components/PatientCard";
                 logOut,
                 closeCircle,
                 img: require("../../../public/logobig.png"),
-                //icons end
+
                 searchQuerywithPhoneNumber: null,
                 searchQuerywithssn:null,
                 DoctorID:null,
@@ -123,7 +123,7 @@ import PatientCard from "../../components/PatientCard";
                       for (const med of this.pa.visit) {
 
                           if(med.visits && med.diagnosis ){
-                              console.log(med.visits,med.diagnosis);
+
                           this.Pvisits.push({
                               patient_id:med.patient_id,
                               dates:med.visits.split(','),
@@ -139,14 +139,11 @@ import PatientCard from "../../components/PatientCard";
 
                                     this.all[i] = Object.assign(this.all[i], this.Pvisits[j]);
 
-
-
                                 }
                                 this.all[i].Medications = [...new Set(this.all[i].Medications)];
                             }
 
                       }
-
 
                 } ).catch((err) => {
                         console.log(err);
@@ -155,7 +152,7 @@ import PatientCard from "../../components/PatientCard";
 
         computed:{
             resultsPatients() {
-                console.log("computing");
+
                 if ( this.searchQuerywithssn) {
                     return this.all.filter((item) => {
 

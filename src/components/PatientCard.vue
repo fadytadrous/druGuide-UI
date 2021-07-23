@@ -38,7 +38,7 @@
                 const patientModal = await modalController.create({
                     component: PatientModal,
                     cssClass: "my-custom-class",
-                    // mode: 'ios',
+
                     showBackdrop: true,
                     backdropDismiss: true,
                     componentProps: {

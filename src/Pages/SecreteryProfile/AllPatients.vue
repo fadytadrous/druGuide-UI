@@ -30,7 +30,7 @@
 </template>
 <script>
     import { defineComponent } from 'vue';
-    // import MySchedules from './Schedules.vue'
+
     import {
 
         IonCol,
@@ -63,7 +63,7 @@ import PatientCard from "../../components/PatientCard";
         },
         data() {
             return {
-                //icons start
+
                 add,
                 ellipsisHorizontal,
                 ellipsisVertical,
@@ -74,7 +74,7 @@ import PatientCard from "../../components/PatientCard";
                 logOut,
                 closeCircle,
                 img: require("../../../public/logobig.png"),
-                //icons end
+
                 searchQuerywithPhoneNumber: null,
                 searchQuerywithssn:null,
                 pa:[],
@@ -96,27 +96,30 @@ import PatientCard from "../../components/PatientCard";
                       for (const med of this.pa) {
 
                           this.Patients.push({
-                         patient_id:med.patient_id  ,
-                         ssn : med.ssn,
-                         photo: med.photo,
-                         first_name : med.first_name,
-                         last_name : med.last_name,
-                         phone_number :  med.phone_number,
-                          birth_date : med.birth_date.split('T')[0],
-                              Medications :(med.medications) ?  med.medications.split(','):[],
-                         gender : med.gender,
-                         address : med.address,
-                          major_illnesses: med.major_illnesses,
-                          previous_surgery: med.previous_surgery,
-                          previous_illnesses: med.previous_illnesses,
-                          diabetes: ((med.diabetes) ? 'yes' : 'no'),
-                          family_diseases: med.family_diseases,
-                          allergies: med.allergies,
-                          tobacco: ((med.tobacco) ? 'yes' : 'no')
+                              patient_id: med.patient_id,
+                              ssn: med.ssn,
+                              photo: med.photo,
+                              first_name: med.first_name,
+                              last_name: med.last_name,
+                              phone_number: med.phone_number,
+                              birth_date: med.birth_date.split('T')[0],
+                              Medications: (med.medications) ? med.medications.split(',') : [],
+                              gender: med.gender,
+                              address: med.address,
+                              major_illnesses: med.major_illnesses,
+                              previous_surgery: med.previous_surgery,
+                              previous_illnesses: med.previous_illnesses,
+                              diabetes: ((med.diabetes) ? 'yes' : 'no'),
+                              family_diseases: med.family_diseases,
+                              allergies: med.allergies,
+                              tobacco: ((med.tobacco) ? 'yes' : 'no')
 
-                      })
-                  }
+                          });
+                          for (const i in this.Patients) {
 
+                              this.Patients[i].Medications = [...new Set(this.Patients[i].Medications)];
+                          }
+                      }
                 } ).catch((err) => {
                         console.log(err);
 

@@ -575,7 +575,7 @@
                     .create({
                         cssClass: 'alert',
                         header: 'Alert',
-                        // subHeader: 'Subtitle',
+
                         message: msg,
                         buttons: ['OK'],
                     });
@@ -682,7 +682,6 @@
                     }
 
                     else {
-                        // alert("Please fill all the fields");
                         this.presentAlert("Please fill all the fields")
 
                     }
@@ -711,7 +710,7 @@
                     }
 
                     else {
-                        // alert("Please fill all the fields");
+
                         this.presentAlert("Please fill all the fields")
 
                     }
