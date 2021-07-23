@@ -47,19 +47,14 @@
               ></ion-text
             >
           </ion-row>
-           
         </ion-grid>
       </ion-item>
 
       <ion-grid>
-      <ion-row  >
-          <ion-col  size="12" size-sm>
-              <ion-button  @click="cancel" class="button">Cancel</ion-button>
-
+        <ion-row>
+          <ion-col size="12" size-sm>
+            <ion-button @click="cancel" class="button">Cancel</ion-button>
           </ion-col>
-
-
-
         </ion-row>
       </ion-grid>
     </ion-list>
@@ -96,10 +91,10 @@ export default defineComponent({
   data() {
     return { earthOutline };
   },
-  methods:{
+  methods: {
     cancel() {
-                modalController.dismiss();
-            },
-  }
+      modalController.dismiss();
+    },
+  },
 });
 </script>
