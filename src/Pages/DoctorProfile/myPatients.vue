@@ -80,7 +80,8 @@ import PatientCard from "../../components/PatientCard";
                 pa:[],
                 Patients: [],
                 Pvisits:[],
-                all:[]
+                all:[],
+                allvisits:[],
             };
         },
         mounted(){
@@ -135,14 +136,15 @@ import PatientCard from "../../components/PatientCard";
 
                             for(const j in this.Pvisits ) {
                                 if (this.Pvisits[j] && this.Patients[i].patient_id === this.Pvisits[j].patient_id) {
+
                                     this.all[i] = Object.assign(this.all[i], this.Pvisits[j]);
 
 
 
                                 }
-
+                                this.all[i].Medications = [...new Set(this.all[i].Medications)];
                             }
-                          
+
                       }
 
 

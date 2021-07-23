@@ -95,8 +95,6 @@ import PatientCard from "../../components/PatientCard";
 
                       for (const med of this.pa) {
 
-                      //    console.log(med);
-
                           this.Patients.push({
                          patient_id:med.patient_id  ,
                          ssn : med.ssn,
@@ -119,7 +117,6 @@ import PatientCard from "../../components/PatientCard";
                       })
                   }
 
-                    console.log(this.Patients)
                 } ).catch((err) => {
                         console.log(err);
 
@@ -127,7 +124,7 @@ import PatientCard from "../../components/PatientCard";
 
         computed:{
             resultsPatients() {
-                console.log("computing");
+
                 if ( this.searchQuerywithssn) {
                     return this.Patients.filter((item) => {
 
