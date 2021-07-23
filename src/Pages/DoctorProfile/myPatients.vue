@@ -104,7 +104,7 @@ import PatientCard from "../../components/PatientCard";
                           last_name : med.last_name,
                           phone_number : (med.phone_number),
                           birth_date : med.birth_date.split('T')[0],
-                          Medications : med.medications.split(','),
+                         Medications :(med.medications) ?  med.medications.split(','):[],
                           gender : med.gender,
                           address : med.address,
                           major_illnesses: med.major_illnesses,
