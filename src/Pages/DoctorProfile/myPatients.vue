@@ -139,14 +139,11 @@ import PatientCard from "../../components/PatientCard";
 
                                     this.all[i] = Object.assign(this.all[i], this.Pvisits[j]);
 
-
-
                                 }
                                 this.all[i].Medications = [...new Set(this.all[i].Medications)];
                             }
 
                       }
-
 
                 } ).catch((err) => {
                         console.log(err);
