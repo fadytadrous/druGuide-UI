@@ -42,13 +42,13 @@
         IonGrid,IonRow,IonCol,
 
     } from "@ionic/vue";
-    // import BaseTemplate from "../../components/BaseTemplate";
+
     import { defineComponent,KeepAlive } from 'vue';
     export default defineComponent({
         name: "AddPatient",
         components: {
             PersonalInfo,
-            // BaseTemplate,
+
             IonGrid, IonRow, IonCol,
             ProgressBar,
             MedicalHistory,

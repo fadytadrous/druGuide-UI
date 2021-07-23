@@ -210,7 +210,7 @@
         },
         data() {
             return {
-                //model: null,
+
                 closeCircleOutline,
                 menuOpen: false,
                 PatientInfo: {
@@ -241,7 +241,7 @@
                     .create({
                         cssClass: 'alert',
                         header: 'Alert',
-                        // subHeader: 'Subtitle',
+
                         message: msg,
                         buttons: ['OK'],
                     });
@@ -249,7 +249,7 @@
             },
 
             chooseMedication(item){
-                console.log(item);
+
                 this.PatientInfo['Medications'].push(item);
                 this.menuOpen = false;
 
@@ -287,7 +287,7 @@
                 const personalInformation = Object.entries(this.PatientInfo);
                 let complete = true;
                 for (const  value of personalInformation.values()  ) {
-                    // console.log(key , value);
+
                     if(value === '' ){
 
                             complete = false;
@@ -323,7 +323,7 @@
                 reader.readAsDataURL(image);
                 reader.onload = event =>{
                 this.PatientInfo.photo = event.target.result;
-                // console.log(this.PatientInfo.photo);
+
                     }
 
     

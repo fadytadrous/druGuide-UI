@@ -30,7 +30,7 @@
 </template>
 <script>
     import { defineComponent } from 'vue';
-    // import MySchedules from './Schedules.vue'
+
     import {
 
         IonCol,
@@ -63,7 +63,7 @@ import PatientCard from "../../components/PatientCard";
         },
         data() {
             return {
-                //icons start
+
                 add,
                 ellipsisHorizontal,
                 ellipsisVertical,
@@ -74,7 +74,7 @@ import PatientCard from "../../components/PatientCard";
                 logOut,
                 closeCircle,
                 img: require("../../../public/logobig.png"),
-                //icons end
+
                 searchQuerywithPhoneNumber: null,
                 searchQuerywithssn:null,
                 pa:[],

@@ -137,7 +137,7 @@
     import axios from 'axios';
     import FormButton from '../../components/FormButton';
 
-    import {//IonMenu,
+    import {
 
         IonGrid,IonRow,IonCol
         ,alertController
@@ -174,7 +174,7 @@
                     .create({
                         cssClass: 'alert',
                         header: 'Alert',
-                        // subHeader: 'Subtitle',
+
                         message: msg,
                         buttons: ['OK'],
                     });
@@ -184,7 +184,7 @@
                 const MedicalHistory = Object.entries(this.MedicalHistory);
                 let complete = true;
                 for (const value of MedicalHistory.values()  ) {
-                    // console.log(key , value);
+
                     if(value === ''){
                         complete = false;
                     }
@@ -200,7 +200,7 @@
                             .catch(error => console.log(error));
 
                 }else{
-                    // alert("Please fill all the fields");
+
                     this.presentAlert("Please fill all the fields")
 
                 }
