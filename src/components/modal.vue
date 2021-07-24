@@ -50,8 +50,10 @@ import {
   IonButton,
   IonChip,
   IonDatetime,
+  alertController,
 } from "@ionic/vue";
 import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "Modal",
@@ -90,6 +92,16 @@ export default defineComponent({
     },
   },
   methods: {
+    async presentAlert(msg) {
+      const alert = await alertController.create({
+        cssClass: "alert",
+        header: "Alert",
+        // subHeader: 'Subtitle',
+        message: msg,
+        buttons: ["OK"],
+      });
+      return alert.present();
+    },
     submitBooking() {
       const url = process.env.VUE_APP_ROOT_API + "submitBooking";
       let data = {
@@ -98,25 +110,38 @@ export default defineComponent({
         day: this.time.split("T")[0],
         time: this.time.split("T")[1].split(".")[0],
       };
-      console.log(localStorage.getItem(""))
+      console.log(localStorage.getItem(""));
       var request = new Request(url, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          "authorization": "Bearer " +localStorage.getItem('tokensecretary')
+          authorization: "Bearer " + localStorage.getItem("tokensecretary"),
         },
       });
       // console.log(this.time.split('T')[0] , this.time.split('T')[1].split('.')[0] )
       console.log(data);
       // Handle response we get from the API
-      fetch(request).then(() => {
-        console.log("success");
-      });
+      fetch(request)
+        .then((res) => {
+          if (!res.ok) {
+            console.log("Not ok", res.ok, res);
+            this.presentAlert("Failed to book visit");
+          } else {
+            this.router.push("/MainPageSecretery/todaySchedules");
+            modalController.dismiss();
+            console.log("success");
+          }
+        })
+        .catch((error) => console.log(error));
     },
     cancelBooking() {
       modalController.dismiss();
     },
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
   },
 });
 </script>
