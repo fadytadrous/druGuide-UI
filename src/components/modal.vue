@@ -119,18 +119,14 @@ export default defineComponent({
           authorization: "Bearer " + localStorage.getItem("tokensecretary"),
         },
       });
-      // console.log(this.time.split('T')[0] , this.time.split('T')[1].split('.')[0] )
-      console.log(data);
       // Handle response we get from the API
       fetch(request)
         .then((res) => {
           if (!res.ok) {
-            console.log("Not ok", res.ok, res);
             this.presentAlert("Failed to book visit");
           } else {
             this.router.push("/MainPageSecretery/todaySchedules");
             modalController.dismiss();
-            console.log("success");
           }
         })
         .catch((error) => console.log(error));
